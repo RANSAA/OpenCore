@@ -1,0 +1,28 @@
+itlwm.kext使用说明
+
+
+log show --last boot | grep itlwm
+
+
+驱动加载：
+sudo chown -R root:wheel itlwm.kext
+sudo kextload -v itlwm.kext
+
+驱动卸载：
+sudo kextunload itlwm.kext
+
+
+
+修改WIFI密码：
+直接修改info.plist文件中的WiFiConfig属性（可以添加很多，也可以只有一个），kext会自定加载信号最强的WIFI。
+
+
+修改WIFI之后可以不重启系统了，直接重新加载kext即可
+加载：sudo kextload itlwm.kext
+卸载：sudo unload -b com.zxystd.itlwm
+
+PS:修改之后先卸载kext,然后再重新加载即可
+
+
+sudo chown -R root:wheel itlwm.kext
+sudo kextload -v 6 itlwm.kext
