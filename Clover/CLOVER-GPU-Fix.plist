@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Devices</key>
+	<dict>
+		<key>Properties</key>
+		<dict>
+			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+			<dict>
+				<key>framebuffer-stolenmem</key>
+				<data>AAAwAQ==</data>
+				<key>device-id</key>
+				<data>GxkAAA==</data>
+				<key>disable-external-gpu</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-fbmem</key>
+				<data>AACQAA==</data>
+				<key>hda-gfx</key>
+				<string>onboard-1</string>
+				<key>device_type</key>
+				<string>VGA compatible controller</string>
+				<key>framebuffer-patch-enable</key>
+				<data>AQAAAA==</data>
+				<key>enable-hdmi20</key>
+				<data>AQAAAA==</data>
+				<key>AAPL00,override-no-connect</key>
+				<data>AP///////wAGEHycAAAAAAAYAQSVIhNgCm+xp1VMniUMUFQAAAABAQEBAQEBAQEBAQEBAQEB3DeAoHA4QEAwICUAWMIQAAAZAAAADwAAAAAAAAAAAB6CEFIAAAAA/gBTQU1TVU5HCiBMg0hMAAAA/gBMVE4xNTZITDA3NDAxALc=</data>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,2,0</string>
+				<key>AAPL,ig-platform-id</key>
+				<data>AAAbGQ==</data>
+				<key>enable-lspcon-support</key>
+				<data>AQAAAA==</data>
+				<key>model</key>
+				<string>Intel HD Graphics 530</string>
+			</dict>
+		</dict>
+		<key>Audio</key>
+		<dict>
+			<key>Inject</key>
+			<integer>29</integer>
+		</dict>
+		<key>USB</key>
+		<dict>
+			<key>AddClockID</key>
+			<true/>
+			<key>FixOwnership</key>
+			<true/>
+			<key>Inject</key>
+			<true/>
+		</dict>
+		<key>LANInjection</key>
+		<false/>
+	</dict>
+</dict>
+</plist>
