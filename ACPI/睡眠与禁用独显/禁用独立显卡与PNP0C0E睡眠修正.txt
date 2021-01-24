@@ -1,0 +1,110 @@
+禁用独立显卡与PNP0C0E睡眠修正
+
+一：禁用独立显卡
+
+	-config 方法：
+				DeviceProperties\Add\PciRoot(0x0)/Pci(0x2,0x0) 添加：
+																	disable-external-gpu  01000000
+
+				添加引导参数：
+							boot-args             -wegnoegpu
+
+	-SSDT 屏蔽独显方法：
+		  SSDT屏蔽独显过程：
+		  				初始化阶段禁用独显。
+		  				机器睡眠期间启用独显，防止独显在被禁用状态下进入 S3 而可能导致的系统崩溃。
+		  				机器唤醒后再次禁用独显。	
+		  补丁组合：
+		  		综合补丁:			SSDT-HASEE-PTSWAK		
+		  		屏蔽独显补丁: 	SSDT-HASEE-NvGPU_OFF
+
+		  严重警告⚠️	：不要使用补丁的方式禁用独显，睡眠唤醒后会黑屏，直接使用：-wegnoegpu	
+
+
+
+
+二：PNP0C0E 睡眠修正（处理Fn+F12）
+
+	使用补丁:		SSDT-HASEE-PTSWAK：(综合补丁)
+							必须更名：_PTS to ZPTS	
+									_WAK to ZWAK
+				分为两种：
+						1.SSDT-HASEE-PTSWAK-One  即: PNP0C0E 睡眠,
+						特点：
+						     睡眠过程稍快。
+						  	 睡眠过程无法被终止。
+						表现形式：
+						 		按下Fn+F12会立即进入睡眠，电源按钮灯再次点亮时可以按任何键唤醒。⚠️：睡眠状态下不要按Fn+F12，会再次进入睡眠，直接按任意键就行。	  	 
+
+						2.SSDT-HASEE-PTSWAK-Zero 即: PNP0C0D 睡眠,
+						特点：		
+							 睡眠过程中，再次按下睡眠按键立即终止睡眠。
+							 接入外显时，按下睡眠按键后，工作屏幕为外显（内屏灭）；再次按下睡眠按键，内屏、外显正常。
+						表现形式：	 
+								按下Fn+F12无反应（没有外接屏幕不知道其它效果）
+
+
+	使用补丁:		SSDT-HASEE-SleepLID：合上盖子睡眠				
+							必须更名：_LID to XLID
+
+	使用补丁:		SSDT-HASEE-SleepBTN：组合键睡眠)			
+							必须更名：_Q15 to XQ15	
+
+	使用补丁:		SSDT-HASEE-SleepGPRW：睡眠秒醒补丁
+							 必须更名： GPRW to XPRW
+									  6D-04 to 00
+
+	使用补丁:		SSDT-HASEE-SleepTap：EXT3 扩展补丁。解决某些机器唤醒后需按任意键亮屏的问题							
+
+
+
+三： Rename:
+
+SSDT-HASEE-PTSWAK 更名：
+
+					_PTS to ZPTS(1,N)
+					Find:     5F50545301
+					Replace:  5A50545301
+
+					_WAK to ZWAK(1,N)
+					Find:     5F57414B01
+					Replace:  5A57414B01
+
+
+SSDT-HASEE-SleepLID 更名：
+
+					_LID to XLID
+					Find:     5F4C4944 00
+					Replace:  584C4944 00
+
+
+SSDT-HASEE-SleepBTN 更名：
+
+					_Q15 to XQ15
+					Find:     5F513135 00
+					Replace:  58513135 00
+
+
+SSDT-HASEE-SleepGPRW 更名：
+
+					GPRW to XPRW
+					Find:     47505257 02 
+					Replace:  58505257 02 
+
+					6D-04 to 00
+					Find:     0A6D0A04
+					Replace:  0A6D0A00				
+
+
+
+
+
+
+
+四：补丁加载顺序：
+				1.SSDT-HASEE-PTSWAK
+				2.SSDT-HASEE-SleepLID
+				3.SSDT-HASEE-SleepBTN
+				4.SSDT-HASEE-SleepGPRW
+				5.SSDT-HASEE-SleepTap			
+

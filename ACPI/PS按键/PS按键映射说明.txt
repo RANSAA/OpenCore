@@ -1,0 +1,23 @@
+一：补丁:
+
+		1.SSDT-HASEE-BrightFN：
+								功能：将亮度快捷键Fn+F8,Fn+F9映射到F14,F15上，不过改补丁又一个错误：Fn+F8,Fn+F9都会映射到_Q12上面。
+								解决方案：直接使用Fn+Ins ScrLK,Fn+PgUp Pause可以直接调节亮度，或者通过快捷键设置到指定按键
+
+
+		2.SSDT-HASEE-PS2：
+							功能：1.交换Command Option按键
+								 2.RMCF 按键映射					
+
+
+二： Rename:
+
+SSDT-HASEE-BrightFN 更名：
+
+						_Q11 to XQ11
+						Find:     5F513131 00
+						Replace:  58513131 00
+
+						_Q12 to XQ12
+						Find:     5F513132 00
+						Replace:  58513132 00
