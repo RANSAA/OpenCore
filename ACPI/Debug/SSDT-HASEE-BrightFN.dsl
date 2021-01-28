@@ -14,8 +14,15 @@ DefinitionBlock("", "SSDT", 2, "HASEE", "BrightFN", 0)
     External(_SB.PCI0.LPCB.EC, DeviceObj)
     External(_SB.PCI0.LPCB.EC.XQ12, MethodObj)
     External(_SB.PCI0.LPCB.EC.OEM2, FieldUnitObj)
-     
 
+    
+//Debug
+    External(RMDT.P1, MethodObj)
+    External(RMDT.P2, MethodObj)
+    External(_SB.PCI9.TPTS, IntObj)
+    External(_SB.PCI9.TWAK, IntObj)        
+
+ 
     Scope (_SB.PCI0.LPCB.EC)
     {
         //The defined temporary variable is used to store the changed value of Fn+F8/Fn+F9.
@@ -24,6 +31,17 @@ DefinitionBlock("", "SSDT", 2, "HASEE", "BrightFN", 0)
         {
             If (_OSI ("Darwin"))
             {      
+                Name (OEM8, Zero)
+
+//                //Debug...
+
+                \RMDT.P1 ("ABCD-KEYBOARD-Q12")
+                \RMDT.P2 ("ABCD-OEM2=", \_SB.PCI0.LPCB.EC.OEM2)
+                \RMDT.P2 ("ABCD-TKBR=", \_SB.PCI0.LPCB.EC.TKBR)                
+
+//                //Debug...
+    
+                
                 If ((OEM2 == 0x00))//Fn+F8
                 {
                     Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)
@@ -43,7 +61,8 @@ DefinitionBlock("", "SSDT", 2, "HASEE", "BrightFN", 0)
                         Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)
                     }
                 }
-                TKBR = OEM2           
+                TKBR = OEM2
+                            
             }
             Else
             {

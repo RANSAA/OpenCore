@@ -1,0 +1,29 @@
+一：ACPIDebug使用
+
+				1.添加：ACPIDebug.kext
+				2.添加：SSDT-RMDT.aml
+				3.在需要log的ssdt位置加入指定代码：
+					    External(RMDT.P1, MethodObj)
+					    External(RMDT.P2, MethodObj)
+					    External(_SB.PCI9.TPTS, IntObj)
+					    External(_SB.PCI9.TWAK, IntObj)     
+
+
+		                //Debug... 终端打印
+
+		                \RMDT.P1 ("ABCD-KEYBOARD-Q12")
+		                \RMDT.P2 ("ABCD-OEM2=", \_SB.PCI0.LPCB.EC.OEM2)
+		                \RMDT.P2 ("ABCD-TKBR=", \_SB.PCI0.LPCB.EC.TKBR)                
+
+		                //Debug...
+
+		        4.终端搜索：ACPIDebug 查看日志
+		        可以查看SSDT-HASEE-BrightFN.dsl示例文件
+		        
+
+
+二： ioio
+		命令：
+		./ioio -s ApplePS2Keyboard LogScanCodes 1		                
+		功能：可以打开VoodooPS2Controller的按键日志
+		终端搜索：ApplePS2Keyboard 查看日志
