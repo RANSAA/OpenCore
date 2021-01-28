@@ -1,6 +1,0 @@
-SSDT-PNLF-SKL_KBL:
-当使用定制亮度补丁时，需注意补丁都是在_SB下注入的PNLF设备，当原始ACPI中存在PNLF字段时，需将其更名，否则会影响Windows引导。也可以用RehabMan的补丁。更名如下：
-
-//Rename PNLF to XNLF
-Find:    504E 4C46
-Replace: 584E 4C46
