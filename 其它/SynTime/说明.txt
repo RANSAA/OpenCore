@@ -1,0 +1,4 @@
+时间同步脚本：
+			1.SynTime.command：		Mac
+			2.SynTime.vbs:			windows-会弹出cmd窗口
+			2.SynTime.exe：			windows-静默运行，但是需要管理员权限，并且文件路径不能有中文，空格
