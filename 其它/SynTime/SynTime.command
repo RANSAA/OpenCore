@@ -14,6 +14,7 @@ echo 'Tsc Time'
 
 $path/Tsc/Mac.sh
 
-#关闭终端
-osascript -e "tell application \"System Events\" to keystroke \"q\" using command down"
+#关闭终端-所有窗口
+#osascript -e "tell application \"System Events\" to keystroke \"q\" using command down"
+osascript -e 'tell application "Terminal" to quit' &exit
 
