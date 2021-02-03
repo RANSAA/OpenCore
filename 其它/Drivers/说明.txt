@@ -1,0 +1,2 @@
+HfsPlus.efi					可以使用recovery恢复系统
+OpenHfsPlus.efi				替代HfsPlus.efi、VBoxHfs.efi目前已替代VBoxHfs.efi。 不能使用recovery
