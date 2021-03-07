@@ -8,30 +8,54 @@
 		<dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Internal@0,2,0</string>
-				<key>device_type</key>
-				<string>VGA compatible controller</string>
-				<key>model</key>
-				<string>Intel HD Graphics 530</string>
 				<key>AAPL,ig-platform-id</key>
 				<data>AAAbGQ==</data>
-				<key>device-id</key>
-				<data>GxkAAA==</data>
-				<key>framebuffer-patch-enable</key>
-				<data>AQAAAA==</data>
-				<key>framebuffer-fbmem</key>
-				<data>AACQAA==</data>
-				<key>framebuffer-stolenmem</key>
-				<data>AAAwAQ==</data>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,2,0</string>
 				<key>AAPL00,override-no-connect</key>
 				<data>AP///////wBMg3ycAAAAAAAYAQSVIhNgCm+xp1VMniUMUFQAAAABAQEBAQEBAQEBAQEBAQEB3DeAoHA4QEAwICUAWMIQAAAZAAAADwAAAAAAAAAAAB6CEFIAAAAA/gBTQU1TVU5HCiBMg0hMAAAA/gBMVE4xNTZITDA3NDAxAP4=</data>
-				<key>enable-hdmi20</key>
-				<data>AQAAAA==</data>
+				<key>device-id</key>
+				<data>GxkAAA==</data>
+				<key>device_type</key>
+				<string>VGA compatible controller</string>
 				<key>disable-external-gpu</key>
+				<data>AQAAAA==</data>
+				<key>enable-hdmi20</key>
 				<data>AQAAAA==</data>
 				<key>enable-lspcon-support</key>
 				<data>AQAAAA==</data>
+				<key>framebuffer-fbmem</key>
+				<data>AACQAA==</data>
+				<key>framebuffer-patch-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-stolenmem</key>
+				<data>AAAwAQ==</data>
+				<key>model</key>
+				<string>Intel HD Graphics 530</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1F,0x3)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,31,3</string>
+				<key>device-id</key>
+				<data>gIahcA==</data>
+				<key>device_type</key>
+				<string>Audio device</string>
+				<key>layout-id</key>
+				<data>HQAAAA==</data>
+				<key>model</key>
+				<string>100 Series/C230 Series Chipset Family HD Audio Controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x1C,0x3)/Pci(0x0,0x1)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,28,3/0,1</string>
+				<key>built-in</key>
+				<data>AQ==</data>
+				<key>device_type</key>
+				<string>Ethernet controller</string>
+				<key>model</key>
+				<string>RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller</string>
 			</dict>
 		</dict>
 	</dict>
