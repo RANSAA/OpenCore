@@ -2,3 +2,5 @@
 			1.SynTime.command：		Mac，注意：该文件所在的路径不能有空格
 			2.SynTime.vbs:			windows-会弹出cmd窗口
 			2.SynTime.exe：			windows-静默运行，但是需要管理员权限，并且文件路径不能有中文，空格
+服务脚本：
+		1.osx_syntime_install.sh		Mac下安装自动校正时间服务，默认3600秒获取一次， 可在syntime-osx中自动修改	

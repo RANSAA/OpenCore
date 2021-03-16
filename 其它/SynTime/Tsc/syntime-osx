@@ -1,0 +1,34 @@
+#!/bin/sh
+
+
+# MacOS 10.14以上的版本
+# 方法一：使用apple time官网协议
+# sudo sntp -sS time.apple.com
+ 
+# # 方法二：外网不好用时，使用阿里云IP
+# sudo sntp -sS 182.92.12.11
+
+
+# MacOS 10.14以下的版本
+
+# 方法一：使用apple time官网协议
+# sudo ntpdate -vu time.apple.com
+ 
+# # 方法二：外网不好用时，使用阿里云IP
+# sudo ntpdate -vu 182.92.12.11
+
+
+
+# 循环体
+synTime(){
+	sudo sntp -sS 182.92.12.11
+}
+
+# 循环
+{ 
+	while true; 
+	do 
+		synTime;
+		sleep 3600;
+	done; } &
+wait
