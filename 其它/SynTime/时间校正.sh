@@ -18,7 +18,6 @@
 # sudo ntpdate -vu 182.92.12.11
 
 
-
 #运行sh脚本sudo自动输入密码
 
 #第一种方法：使用管道（上一个命令的 stdout 接到下一个命令的 stdin）:
@@ -28,3 +27,5 @@
 sudo -S sntp -sS 182.92.12.11 << EOF 
 123
 EOF
+
+
