@@ -1,12 +1,15 @@
-1.OC-install目录中是官方未经过修改的
+一：
+	OC-install：目录中的文件都是官方未经过修改的补丁文件
+	本目录中的其他文件：都是针对该设备进行修改过的
 
-2.基本目录中的文件是经过针对该设备进行修改过的
+二：
+	SSDT-PLUG：X86原生电源管理
+	SSDT-PNLF：亮度调节
+	SSDT-SBUS：Inject SBUS device
+	SSDT-USBX：仿冒EC控制器	
+	SSDT-GPI0：I2C补丁可能需要
 
-3.SSDT-EC-USBX仿冒EC，不过改设别有EC控制器，所以不需要。
 
-4.SSDT-PLUG：X86电池注入
-			不使用这个补丁时，直接使用SMCBatteryManager.kext是可以直接显示电池信息的
-			
-			注意：
-				1.使用该补丁时：使用SMCBatteryManager或者ACPIBatteryManager时，IORegistryExplorer工具查看X86PlatformPlugin是在工作，电池信息能正常显示，但是电源适配器，电池使用状态正不正常，会一直是电池。
-				2.不使用该补丁：使用SMCBatteryManager时，IORegistryExplorer工具查看X86PlatformPlugin是没有工作，但是电池信息显示正常，电源适配器，电池使用状态正常。（）
+三：
+	有的补丁是需要重命名的，请查看对应文件中的注释	
+

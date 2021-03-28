@@ -1,27 +1,32 @@
-SSDT-PLUG：X86电源管理
+SSDT-PLUG: X86电源管理注入
+
+		注意：
+			1.使用该补丁时：使用SMCBatteryManager或者ACPIBatteryManager时，IORegistryExplorer工具查看X86PlatformPlugin是在工作，电池信息能正常显示，但是电源适配器，电池使用状态正不正常，会一直是电池。
+			2.不使用该补丁：使用SMCBatteryManager时，IORegistryExplorer工具查看X86PlatformPlugin是没有工作，但是电池信息显示正常，电源适配器，电池使用状态正常。（）
 
 
-SSDT-HASEE-BAT0：电池信息修补（PS:是否使用该补丁好像区别不大，，可选）
+
+
+SSDT-HASEE-BAT0：电池信息修补
 
 
 
 使用注意：
 		1.使用SSDT-PLUG + SMCBatteryManager（ACPIBatteryManager）管理时都能显示电池信息与节能设置，但是使用电池，电源适配器却无法判断
-		并且再进行了睡眠修补了之后，唤醒后电池信息会显示不正常
+		并且再进行了睡眠修补了之后，唤醒后电池信息会显示不正常，所以不用使用SSDT-PLUG，如果睡眠唤醒之后没有问题，可以尝试使用SSDT-PLUG
+		
+		2.不使用SSDT-PLUG的后果就是没有节能五项，只有两项，不过影响不大。
 
-		2.直接使用SMCBatteryManager时，电池信息正确，只是节能设置中切少某些操作。
+		3.可能是睡眠修复补丁不完美，会造成使用SSDT-PLUG后电池信息不正常的问题，所以可以不用SSDT-PLUG补丁或者不修补睡眠相关问题。
 
-		PS:推荐使用方案2
-
-
-
-
+		4.综上如果设备睡眠唤醒之后电池信息正常就可以使用SSDT-PLUG，反之不要使用！
 
 
 
 
 
-电源 更名：
+
+SSDT-HASEE-BAT0 使用更名：
 
 
 // In config ACPI, UPBI to XPBI
