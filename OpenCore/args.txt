@@ -1,0 +1,23 @@
+keepsyms=1 debug=0x100
+
+-v keepsyms=1 debug=0x100 npci=0x2000 agdpmod=pikera alcid=29 -wegnoegpu -lilubetaall
+
+keepsyms=1 debug=0x100 npci=0x2000 agdpmod=pikera -lilubetaall
+
+keepsyms=1 debug=0x100 npci=0x2000 agdpmod=pikera -lilubetaall -wegnoegpu rtcfx_exclude=00-01,7F-80
+
+rtcfx_exclude=00-01,7F-80
+
+rtc-blacklist:	00017F80
+
+
+System Model:				MacBookPro13,3
+Serial Number:				C02RD0LPGTFN
+Board Serial Number(MBL):	C02610300CDHCF98C
+SmUUID:						5F859FB6-D411-431D-95F5-2227F4C9B782
+
+
+
+
+
+log show --last boot | grep -Ei "ACPI"
