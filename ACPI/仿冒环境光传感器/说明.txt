@@ -1,0 +1,7 @@
+说明：
+    通过仿冒环境光传感器，才能实现（键盘）背光功能。
+
+SSDT-ALS0.aml：仿冒环境光感器
+
+使用：
+    SMCLightSensor.kext + SSDT-ALS0.aml 才能实现键盘背光功能。
